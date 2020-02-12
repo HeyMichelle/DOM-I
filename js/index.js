@@ -48,6 +48,7 @@ links.forEach((e, i) => {
   e.style.color = "green";
 });
 
+
 // prepend nav item
 let firstNav = document.querySelector('nav');
 let firstNavLink = document.createElement('a');
@@ -137,6 +138,15 @@ contP[1].textContent = siteContent.contact["phone"];
 
 contP[2].textContent = siteContent.contact["email"];
 
+
 // footer, p
 let footerCopyright = document.querySelector('footer p');
 footerCopyright.textContent = siteContent.footer.copyright; 
+
+// stretch attempts
+
+let allPink = document.querySelectorAll("p");
+
+allPink.forEach((e, i) => {
+  e.style.color = "darkGreen";
+});
