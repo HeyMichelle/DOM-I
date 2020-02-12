@@ -41,22 +41,24 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
-let links = document.getElementsByTagName("a");
+let links = document.querySelectorAll("a");
 
-links[0].innerHTML = siteContent["nav"]["nav-item-1"]
+links.forEach((e, i) => {
+  e.textContent = siteContent["nav"][`nav-item-${i+1}`]
+});
 
-links[1].innerHTML = siteContent["nav"]["nav-item-2"]
+// prepend nav item
+let firstNav = document.querySelector('nav');
+let firstNavLink = document.createElement('a');
+firstNavLink.textContent = "Home";
+firstNav.prepend(firstNavLink);
 
-links[2].innerHTML = siteContent["nav"]["nav-item-3"]
+// append nav item
+let lastNav = document.querySelector('nav');
+let lastNavLink = document.createElement('a');
+lastNavLink.textContent = "Login";
+lastNav.appendChild(lastNavLink);
 
-links[3].innerHTML = siteContent["nav"]["nav-item-4"]
-
-links[4].innerHTML = siteContent["nav"]["nav-item-5"]
-
-links[5].innerHTML = siteContent["nav"]["nav-item-6"]
-
-
-// How to create a loop?
-// links.foreach((e, i) => {
-//   e.textContent = siteContent["nav"][`nav-item-${i+1}`]
-// });
+for(let i = 0; i<9; i++) {
+  links[i].style.color = "green";
+}
