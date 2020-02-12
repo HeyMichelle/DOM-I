@@ -122,3 +122,21 @@ pBot[1].textContent = (siteContent["main-content"]["product-content"]);
 headBot[2].textContent = (siteContent["main-content"]["vision-h4"]);
 
 pBot[2].textContent = (siteContent["main-content"]["vision-content"]);
+
+// class section "contact", h4 and p
+
+let contH4 = document.querySelector('.contact h4');
+
+let contP = document.querySelectorAll('.contact p');
+
+contH4.textContent = siteContent.contact["contact-h4"];
+
+contP[0].textContent = siteContent.contact["address"];
+
+contP[1].textContent = siteContent.contact["phone"];
+
+contP[2].textContent = siteContent.contact["email"];
+
+// footer, p
+let footerCopyright = document.querySelector('footer p');
+footerCopyright.textContent = siteContent.footer.copyright; 
