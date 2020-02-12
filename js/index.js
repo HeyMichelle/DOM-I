@@ -45,20 +45,38 @@ let links = document.querySelectorAll("a");
 
 links.forEach((e, i) => {
   e.textContent = siteContent["nav"][`nav-item-${i+1}`]
+  e.style.color = "green";
 });
 
 // prepend nav item
 let firstNav = document.querySelector('nav');
 let firstNavLink = document.createElement('a');
 firstNavLink.textContent = "Home";
+firstNavLink.style.color = "green";
 firstNav.prepend(firstNavLink);
+
 
 // append nav item
 let lastNav = document.querySelector('nav');
 let lastNavLink = document.createElement('a');
 lastNavLink.textContent = "Login";
+lastNavLink.style.color = "green";
 lastNav.appendChild(lastNavLink);
 
-for(let i = 0; i<9; i++) {
-  links[i].style.color = "green";
-}
+// Unable to make first and last link green also? Had to do on individually added/appended links
+
+
+// cta h1: Why can't I make anything work get getElementBy____? does " or ' matter?
+
+//cta text
+const ctaH = document.querySelector(".cta-text h1");
+ctaH.textContent = (siteContent["cta"]["h1"]);
+
+// cta button
+const ctaBtn = document.querySelector("button");
+ctaBtn.textContent = 'Get Started';
+
+// cta img
+let ctaI = document.getElementById("cta-img");
+ctaI.setAttribute('src', siteContent["cta"]["img-src"]);
+
