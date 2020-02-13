@@ -84,14 +84,20 @@ var watch = new Stopwatch(secTen, secOne, msHun, msTen);
 
 // var watch = new Stopwatch('digits');
 
-toggleBtn.addEventListener('click', function() {
-    if (watch.isOn) {
-        watch.stop();
-        toggleBtn.textContent = 'Start';
-    } else {
-        watch.start();
+function start() {
+    watch.start();
         toggleBtn.textContent = 'Stop';
-    }
+}
+
+function stop() {
+    watch.stop();
+        toggleBtn.textContent = 'Start';
+}
+
+
+
+toggleBtn.addEventListener('click', function() {
+    (watch.isOn) ? stop() : start();
 });
 
 resetBtn.addEventListener('click', function() {
