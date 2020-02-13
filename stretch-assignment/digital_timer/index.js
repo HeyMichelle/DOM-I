@@ -7,7 +7,9 @@ function Stopwatch(elem) {
     // interval, runs the update function, and is used to clear the watch. 
 
     function update() {
-        time += delta();
+        if (this.isOn) {
+            time += delta();
+        }
         var formattedTime = timeFormatter(time);
         elem.textContent = formattedTime;
         // console.log(formattedTime);
@@ -44,7 +46,7 @@ function Stopwatch(elem) {
 
     this.start = function() {
         if (!this.isOn) {
-            interval = setInterval(update, 10);
+            interval = setInterval(update.bind(this), 10);
             offset = Date.now();
             this.isOn = true;
         }
@@ -80,8 +82,10 @@ var watch = new Stopwatch(secTen, secOne, msHun, msTen);
 toggleBtn.addEventListener('click', function() {
     if (watch.isOn) {
         watch.stop();
+        toggleBtn.textContent = 'Start';
     } else {
         watch.start();
+        toggleBtn.textContent = 'Stop';
     }
 });
 
