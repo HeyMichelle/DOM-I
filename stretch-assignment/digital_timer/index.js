@@ -66,6 +66,8 @@ function Stopwatch(elem) {
     };
 }
 
+var toggleBtn = document.getElementById('toggle');
+var resetBtn = document.getElementById('reset');
 
 var secTen = document.getElementById('secondTens');
 var secOne = document.getElementById('secondOnes');
@@ -74,10 +76,13 @@ var msTen = document.getElementById('msTens');
 
 // used these variables instead of timer, sow hat would I put into new stopwatch function?
 
-var toggleBtn = document.getElementById('toggle');
-var resetBtn = document.getElementById('reset');
 
 var watch = new Stopwatch(secTen, secOne, msHun, msTen);
+
+
+// var digits = document.getElementById('digits');
+
+// var watch = new Stopwatch('digits');
 
 toggleBtn.addEventListener('click', function() {
     if (watch.isOn) {
