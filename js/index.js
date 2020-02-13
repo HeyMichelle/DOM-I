@@ -145,8 +145,8 @@ footerCopyright.textContent = siteContent.footer.copyright;
 
 // stretch attempts
 
-let allPink = document.querySelectorAll("p");
+let allGreen = document.querySelectorAll("p");
 
-allPink.forEach((e, i) => {
+allGreen.forEach((e, i) => {
   e.style.color = "darkGreen";
 });
