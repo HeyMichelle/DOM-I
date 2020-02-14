@@ -1,10 +1,41 @@
+// function addBtnDiv() {
+
+//     // create div with classname
+//     var buttonDiv = document.createElement("div");
+
+//     buttonDiv.className = "buttons";
+
+
+//     // use a fragment for the buttons?
+//     var buttonFrag = document.createDocumentFragment();
+
+//     buttonFrag.appendChild(btnItems);
+
+//     btnItems.appendChild(btn1);
+//     btnItems.appendChild(btn2);
+ 
+//     // create button 1 and 2 with id and append to div
+//     var btn1 = document.createElement("button"); 
+//     btn.id = 'toggle';
+    
+//     // create button 2 with id and append to div
+//     var btn2 = document.createElement("button");
+//     btn.id = 'reset';
+    
+
+//     // append div to the body in the dom
+//     document.body.appendChild(buttonDiv);
+// }
+
+
+
 function Stopwatch(elem) {
 
     var time = 0;
     var interval;
     var offset;
 
-    // interval, runs the update function, and is used to clear the watch. 
+    // interval, run update function, clear watch. 
 
     function update() {
         if (this.isOn) {
@@ -26,18 +57,19 @@ function Stopwatch(elem) {
     function timeFormatter(timeInMilliseconds) {
         var time = new Date(timeInMilliseconds);
         var seconds = time.getSeconds().toString();
-        var milliSeconds = time.getMilliseconds().toString();
+        var milliSeconds = time.getMilliseconds().toFixed(2).toString();
 
         if (seconds.length < 2) {
             seconds = '0' + seconds;
         }
 
         if (milliSeconds.length < 2) {
-            millSeconds = '0' + milliSeconds;
+            milliSeconds = '0' + milliSeconds;
         }
 
        return seconds + ' : ' + milliSeconds;
     }
+    
 
     // .toString() to check the length
  
@@ -66,23 +98,22 @@ function Stopwatch(elem) {
     };
 }
 
-var toggleBtn = document.getElementById('toggle');
-var resetBtn = document.getElementById('reset');
-
 var secTen = document.getElementById('secondTens');
 var secOne = document.getElementById('secondOnes');
 var msHun = document.getElementById('msHundreds');
 var msTen = document.getElementById('msTens');
 
-// used these variables instead of timer, sow hat would I put into new stopwatch function?
-
-
 var watch = new Stopwatch(secTen, secOne, msHun, msTen);
 
 
-// var digits = document.getElementById('digits');
+// var digits = document.getElementsByClassName('digit');
 
 // var watch = new Stopwatch('digits');
+
+
+// buttons for start/stop and reset
+var toggleBtn = document.getElementById('toggle');
+var resetBtn = document.getElementById('reset');
 
 function start() {
     watch.start();
